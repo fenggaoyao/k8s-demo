@@ -1,0 +1,18 @@
+version: '3.4'
+
+services: 
+  api1:
+    image: fenggaoyao/api1
+    build: 
+      context: .
+      dockerfile: api1/Dockerfile
+    ports: 
+      - "8080:80"
+  
+  api2:
+    image: fenggaoyao/api2
+    build: 
+      context: .
+      dockerfile: api2/Dockerfile
+    ports: 
+     - "8081:80"

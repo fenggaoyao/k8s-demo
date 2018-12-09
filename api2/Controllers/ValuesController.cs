@@ -2,26 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using api1.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace api1.Controllers
+namespace api2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly INameService nameService;
-        public ValuesController(INameService nameService)
-        {
-            this.nameService = nameService;
-        }
-
         // GET api/values
         [HttpGet]
-        public async Task<ActionResult<string>> GetAsync()
+        public ActionResult<IEnumerable<string>> Get()
         {
-            return await nameService.GetName();
+            return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
