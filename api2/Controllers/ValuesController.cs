@@ -24,7 +24,7 @@ namespace api2.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return Environment.MachineName;;
         }
 
         // POST api/values

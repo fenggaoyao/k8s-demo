@@ -1,25 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-api1-deploy
+  name: name-api
   labels:
-    name: k8s-api1-deploy
+    name: name-api
 spec:
   replicas: 2
   selector:
-    matchLabels:
-      name: k8s-api1
+    matchLabels: 
+      name: name-api
   template:
     metadata:
       labels:
-        name: k8s-api1
+        name: name-api
     spec:
       containers:
-      - name: k8s-api1
-        image: 	fenggaoyao/api1
+      - name: name-api
+        image: fenggaoyao/api2
         ports:
-        - containerPort: 80
-        imagePullPolicy: Always
+          - containerPort: 80
 
 
 ---
@@ -27,11 +26,11 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: k8s-api1
+  name: name-api
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 80
       targetPort: 80
   selector:
-    name: k8s-api1
+    name: name-api

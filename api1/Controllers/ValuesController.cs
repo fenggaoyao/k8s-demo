@@ -21,14 +21,14 @@ namespace api1.Controllers
         [HttpGet]
         public async Task<ActionResult<string>> GetAsync()
         {
-            return await nameService.GetName();
+            return $"hello,{await nameService.GetName()},at:{System.DateTime.Now.ToString()}";
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return Environment.MachineName;
         }
 
         // POST api/values
