@@ -1,0 +1,17 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: k8s-api1
+  labels:
+    name: k8s-api1
+spec:
+  containers:
+  - name: k8s-api1
+    image: fenggaoyao/api1
+    ports:
+      - containerPort: 80
+    imagePullPolicy: Always
+    
+
+
+

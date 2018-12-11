@@ -2,6 +2,7 @@ version: '3.4'
 
 services: 
   api1:
+    container_name: gatesway
     image: fenggaoyao/api1
     build: 
       context: .
@@ -10,6 +11,7 @@ services:
       - "8080:80"
   
   api2:
+    container_name: name-api
     image: fenggaoyao/api2
     build: 
       context: .

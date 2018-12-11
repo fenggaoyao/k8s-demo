@@ -12,9 +12,12 @@ namespace api2.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var host=Environment.GetEnvironmentVariable("NAME_API_SERVICE_HOST");
+            if(string.IsNullOrEmpty(host))
+               return Environment.MachineName;
+            return host;
         }
 
         // GET api/values/5

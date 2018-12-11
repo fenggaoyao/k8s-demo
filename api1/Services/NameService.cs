@@ -6,7 +6,7 @@ namespace api1.Services
 {
     public class NameService : INameService
     {
-        private readonly string _nameurl="https://www.qq.com/?fromdefault"; 
+        private readonly string _nameurl="http://name-api/api/values"; 
         public async Task<string> GetName()
         {
             return await _nameurl.GetStringAsync();
