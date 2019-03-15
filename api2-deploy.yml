@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: name-api
+  namespace: netcore
   labels:
     name: name-api
 spec:
@@ -16,9 +17,14 @@ spec:
     spec:
       containers:
       - name: name-api
-        image: fenggaoyao/api2
+        env:
+          - name: HOSTNAME_COMMAND
+            valueFrom:
+              fieldRef: {fieldPath: metadata.name}
+        image: fenggaoyao/api2:1.1
         ports:
           - containerPort: 80
+        imagePullPolicy: IfNotPresent
 
 
 ---
@@ -27,8 +33,9 @@ kind: Service
 apiVersion: v1
 metadata:
   name: name-api
+  namespace: netcore
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 80
       targetPort: 80

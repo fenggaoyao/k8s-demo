@@ -13,7 +13,6 @@ data:
       },
       "AllowedHosts": "*"
     }
-  mykey: gaoyao
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -23,7 +22,7 @@ metadata:
   labels:
     name: k8s-api1-deploy
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       name: k8s-api1
@@ -39,12 +38,9 @@ spec:
             - name: appsettings 
               mountPath: /app/appsettings.json
               subPath: appsettings.json
-            - name: appsettings
-              mountPath: /app/test
-              subPath: mykey
           ports:
             - containerPort: 80
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
       imagePullSecrets:
         - name: aliyunapi1
       volumes:

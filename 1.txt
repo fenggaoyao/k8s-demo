@@ -1,0 +1,1 @@
+kubectl create secret docker-registry aliyunapi1 --docker-server=registry.cn-shenzhen.aliyuncs.com/cloudsu/api1 --docker-username=702779275@qq.com --docker-password=gfz39323537 --docker-email=702779275@qq.com -n netcore
